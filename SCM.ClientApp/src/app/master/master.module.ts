@@ -9,14 +9,14 @@ import { StudentsComponent } from './student/studens/students.component';
 import { AddStudentComponent } from './student/add-student/add-student.component';
 import { StudentCourseRecordsComponent } from './student-courses/student-course-records/student-course-records.component';
 import { AddStudentCourseComponent } from './student-courses/add-student-course/add-student-course.component';
-import { StudentResultComponent } from './result/student-result/student-result.component';
+import { ResultComponent } from './result/result/result.component';
 @NgModule({
   declarations: [
     StudentsComponent,
     AddStudentComponent,
     StudentCourseRecordsComponent,
     AddStudentCourseComponent,
-    StudentResultComponent,
+    ResultComponent,
   ],
   imports: [
     CommonModule,
