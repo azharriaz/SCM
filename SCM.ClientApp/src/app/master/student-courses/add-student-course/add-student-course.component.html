@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+        <h5>Student Course Details</h5>
+        <div class="card-header-right">
+          <i class="icofont icofont-spinner-alt-5"></i>
+        </div>
+      </div>
+      <div class="card-block">
+        <form [formGroup]="studentCourseForm" (ngSubmit)="onSubmit(form)" #form="ngForm" autocomplete="off" novalidate>
+          <div class="row col-sm-12 col-md-12 col-lg-12">
+            <div class="form-group col-md-6">
+              <label class="control-label" for="City">Student</label>
+              <div >
+                <select class="form-control" data-val="true" formControlName="studentId">
+                  <option value="">--Select Student--</option>
+                  <option *ngFor="let student of studentCourseVM.students" value={{student.studentId}}>
+                    {{student.name}}
+                  </option>
+                </select>
+                <span class="text-danger" *ngIf="StudentId?.invalid && form.submitted">
+                  Student is required
+                </span>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label" for="City">Course</label>
+              <div>
+                <select class="form-control" data-val="true" formControlName="courseId">
+                  <option value="">--Select Course--</option>
+                  <option *ngFor="let course of studentCourseVM.courses" value={{course.courseId}}>
+                    {{course.name}}
+                  </option>
+                </select>
+                <span class="text-danger" *ngIf="CourseId?.invalid && form.submitted">
+                  Course is required
+                </span>
+              </div>
+              
+            </div>
+            <div class="form-group col-md-6">
+              <label class="control-label">Obtained GPA</label>
+              <div>
+                <input class="form-control" type="number" (blur)="checkIfValid()" formControlName="obtainedCreditHours">
+                <span class="text-danger" *ngIf="ObtainedCreditHours.invalid && form.submitted">
+                  Obtained GPA is required.
+                </span>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label class="col-sm-2"></label>
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-success ">Save</button>
+                <a type="reset" [routerLink]="['/master/student-course']" class="btn btn-default ">Cancel</a>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+
+
+<div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h5>Student Courses</h5>
+          <div class="card-header-right">
+            <i class="icofont icofont-spinner-alt-5"></i>
+          </div>
+          <a class="btn btn-info float-right" [routerLink]="['/master/add-student-course', 0]">Registeration</a>
+        </div>
+        <div class="card-block" style="overflow-x:auto;">
+          <input type="text" class="form-control col-sm-6" placeholder="Search" (keyup)='search($event.target.value)'>
+          <label>
+          </label>
+          <table class="table table-hover col-sm-12">
+            <tr>
+              <th>Name</th>
+              <th>RollNo</th>
+              <th>Course No</th>
+              <th>Course Name</th>
+              <th>Marks (O/T)</th>
+              <th>Total :  {{StudentCourses.length}}</th>
+            </tr>
+            <tr *ngFor="let i of StudentCourses | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;">
+              <td>{{i.studentName}}</td>
+              <td>{{i.rollNo}}</td>
+              <td>{{i.courseNo}}</td>
+              <td>{{i.courseName}}</td>
+              <td>{{i.obtainedCreditHours+"/"+i.totalCreditHours}}</td>
+              <td>
+                <a  [routerLink]="['/master/add-student-course', i.studentCourseId]" class="btn-outline-success"><i class="icofont icofont-ui-edit"></i></a>
+                <a  style="cursor: pointer;" (click)="delClicked(i)" class="btn-outline-danger"><i class="icofont icofont-ui-delete"></i></a>
+  
+              </td>
+            </tr>
+          </table>
+          <ngb-pagination [(page)]="page" [pageSize]="pageSize" [maxSize]="5" [boundaryLinks]="true" [collectionSize]="StudentCourses.length"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+  

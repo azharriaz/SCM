@@ -1,0 +1,38 @@
+﻿@media print and (color) {
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        overflow: hidden;
+       
+    }
+    div.page-break {
+        display: block;
+        page-break-before: always;
+    }
+}
+
+
+@media page {
+   *{
+    size: auto;
+    margin: 1mm 1mm 1mm 1mm;
+    border: dotted 1px;
+   } 
+}
+
+table {
+    page-break-inside: auto;
+}
+
+tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+tfoot {
+    display: table-footer-group;
+}

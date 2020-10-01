@@ -1,0 +1,20 @@
+<nav class="pcoded-navbar">
+    <div class="pcoded-inner-navbar main-menu">
+        <div class="pcoded-navigatio-lavel">Navigation</div>
+        
+        <ul class="pcoded-item pcoded-left-item">
+
+            <ng-container *ngFor="let m of menues">
+                <li routerLinkActive="pcoded-trigger" >
+                    <a [routerLink]="m.path" >
+                      <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                      <span class="pcoded-mtext">{{m.title}}</span>
+                    </a>
+                  </li>
+            </ng-container>
+        </ul>
+
+
+
+    </div>
+</nav>
