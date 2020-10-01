@@ -16,7 +16,10 @@ namespace SCM.StudentCourses.Services.ExternalResources
         {
             this.configuration = configuration;
         }
-        // This function will read students from External MicroService which we will use later to map with StudentCourse Type.
+        /// <summary>
+        ///  This function will read students from External Student Service which we will use later to map with StudentCourse Type.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IEnumerable<StudentDTO>> GetStudentsAsync()
         {
             try
@@ -36,7 +39,11 @@ namespace SCM.StudentCourses.Services.ExternalResources
                 return null;
             }
         }
-        // This function takes rollNo of student and fetches student detail from External MicroService Resource
+        /// <summary>
+        ///  This function takes rollNo of student and fetches student detail from External MicroService Resource
+        /// </summary>
+        /// <param name="rollNo"></param>
+        /// <returns></returns>
         public async Task<StudentDTO> GetStudentByRollNoAsync(string rollNo)
         {
             try

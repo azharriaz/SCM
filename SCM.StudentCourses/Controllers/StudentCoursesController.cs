@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SCM.StudentCourses.Services.Interfaces;
@@ -29,8 +30,27 @@ namespace SCM.StudentCourses.Controllers
                 return BadRequest("Somthing went wrong, Please try again later" + ex.Message);
             }
         }
+        // GET api/<StudentCourses>/5
+        [HttpGet, Route("{rollNo}")]
+        public async Task<ActionResult<IEnumerable<StudentCourseVM>>> GetByRollNo(string rollNo)
+        {
+            try
+            {
+                var studentCourses = await studentCourseService.GetByRollNo(rollNo);
+                if (studentCourses == null)
+                {
+                    return BadRequest("Student not found, please check Roll No and try again.!");
+                }
+                return Ok(studentCourses);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Somthing went wrong, Please try again later" + ex.Message);
+            }
+
+        }
         // GET: api/StudentCourses/5
-        [HttpGet("{id}")]
+        [HttpGet, Route("{id:int}")]
         public async Task<ActionResult<StudentCourseVM>> Get(int id)
         {
             try

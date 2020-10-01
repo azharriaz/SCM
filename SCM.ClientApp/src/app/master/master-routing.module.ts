@@ -5,6 +5,7 @@ import { AddStudentComponent } from './student/add-student/add-student.component
 import { StudentsComponent } from './student/studens/students.component';
 import { StudentCourseRecordsComponent } from './student-courses/student-course-records/student-course-records.component';
 import { AddStudentCourseComponent } from './student-courses/add-student-course/add-student-course.component';
+import { StudentResultComponent } from './result/student-result/student-result.component';
 
 
 
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: "student-course",
         component: StudentCourseRecordsComponent,
+      },
+      {
+        path: "student-result",
+        component: StudentResultComponent,
       },
       {
         path: "add-student-course/:id",
