@@ -30,7 +30,7 @@ namespace SCM.StudentResults.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest("Something went wrong, please try again!" + ex.Message);
+                return BadRequest("Something went wrong, please try again!");
             }
 
         }
